@@ -35,7 +35,7 @@ main{
     flex-direction: column;
     width: 85%;
     height: auto;
-    background-color: thistle;
+    background-color: #F9F9F9;
     padding: 2%;
     gap: 5px;
 }
