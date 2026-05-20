@@ -1,0 +1,85 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    width: 100%;
+    height: 7.5%;
+    box-shadow: 0px 0px 10px 1px gray;
+    
+}
+
+main{
+    height: 92.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+#sideBar{
+    width: 15%;
+    height: 100%;
+    background-color: black;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: auto;
+    background-color: thistle;
+    padding: 2%;
+}
+
+.category-card-container {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    width: 80%;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    left:25%;
+}
+
+.grid-container {
+    height: 90%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    gap: 20px;
+}
+
+.category-card {
+    height: 120px;
+    border-radius: 14px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    cursor: pointer;
+    position: relative;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+
+.category-card:hover {
+  
+   background:linear-gradient(to right,black,white) ;
+   color: rgb(245, 245, 245);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+   border: .5px solid black;
+}

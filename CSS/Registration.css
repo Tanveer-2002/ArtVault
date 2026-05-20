@@ -1,11 +1,10 @@
 body{
     height: 100vh;
     width: 90%;
+    background-color: beige;
     color: white;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-image: url("/Images/system-images/LoginBG.png");
+      background-image: url("../Images/system-images/LoginBG.png");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -27,12 +26,15 @@ span{
     font-size: 20px;
 }
 
-#login-header{
-    height: 40%;
-    width: 100%;
-    background-image: url("/Images/system-images/ArtVaulttext.png");
-    background-size: cover;
 
+
+#login-header{
+    height: 25%;
+    width: 100%;
+    background-image: url("../Images/system-images/ArtVaulttext.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -42,8 +44,8 @@ span{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60%;
-    width: 30%;
+    height: 70%;
+    width: 40%;
     position: sticky;
     top: 20%;
     left: 60%;
@@ -51,27 +53,24 @@ span{
 }
 
 #login_box{
-    display: flex;
-    flex-direction: column;
+    display: block;
     width: 90%;
     height: 90%;
     background-color: white;
-    border-radius: 20px;
-    box-shadow:  0 0 2px ;
+    border-radius: 10px;
     padding: 20px;
     background-color: rgb(73, 70, 70);
-        
 }
 
-
-.label{
-    font-size: 25px;
-}
 
 form{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.label{
+    font-size: 25px;
 }
 
 .box{
@@ -85,41 +84,41 @@ form{
     color: rgb(213, 211, 211);
 }
 
-#links{
+#radio{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 30px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    height: auto;
+    font-size: 30px;
+    width: 95%;
 }
 
-#fp{
-    margin-left: 35%;
-}
 
-
-#dha{
-    margin-left: 30%;
-}
 
 #B1{
     margin-top: 15px;
     width: 90%;
-    height: 60px;
+    height: auto;
     margin-left: 5%;
-    font-size: 30px;
+    font-size: 25px;
     border-radius: 10px;
     background-color: rgb(168, 161, 161);
+    padding: 4%;
 }
 
 #B1:hover{
-    margin-top: 15px;
-    width: 90%;
-    height: 60px;
-    margin-left: 5%;
-    font-size: 30px;
-    border-radius: 10px;
     background-color: rgb(0, 0, 0);
     color: white;
     cursor: pointer;
+}
+
+
+#aha{
+    margin-left: 10%;
 }

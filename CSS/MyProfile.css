@@ -1,0 +1,266 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    width: 100%;
+    height: 7.5%;
+    box-shadow: 0px 0px 10px 1px gray;
+    
+}
+
+main{
+    height: 92.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+#sideBar{
+    width: 15%;
+    height: 100%;
+    background-color: black;
+}
+
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    background-color: thistle;
+    gap: 5px;
+    align-items: center;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #111;
+    align-self: flex-start;
+    padding-left: 20px;
+}
+
+.profile-header-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 14%;
+    width:95%;
+    padding: 20px;
+
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #a1a1a1, #555555);
+}
+
+
+.profile-text{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.name-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.name-badge-row h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.badge {
+    border: 1px solid #333;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+}
+
+.join-date {
+    font-size: 16px;
+    color: #4a5568;
+}
+
+.account-settings-btn {
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.account-settings-btn:hover {
+    background-color: #f7fafc;
+}
+
+.profile-details-row {
+    height: 25%;
+    width: 98%;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+}
+
+.details-card{
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    height:60%;
+    width: 50%;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+
+.info-label {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 8px;
+    width: 120px;
+    text-align: center;
+    margin-right: 20px;
+    display: flex;
+}
+
+.info-value {
+    color: #2d3748;
+}
+
+
+.aboutme{
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    height:60%;
+    width: 50%;
+
+}
+.aboutme h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.aboutme p {
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.collection-section {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 35%;
+    width: 94%;
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collection-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.view-all-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.collection-grid {
+    display: flex;
+    gap: 24px;
+    height: 80%;
+    width: 90%;
+    background-color: rgb(241, 239, 236);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.art-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    height: 80%;
+    width: 20%;
+}
+
+.art-image{
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makesimage container dynamic square */
+    background-color: #4e4e4e;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+.art-title {
+    font-size: 14px;
+    color: #4a5568;
+    font-weight: 500;
+}
