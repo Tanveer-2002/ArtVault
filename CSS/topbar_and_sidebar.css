@@ -1,0 +1,213 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    width: 100%;
+    height: 7.5%;
+    box-shadow: 0px 0px 10px 1px gray;
+    display: flex;
+    flex-direction: row;
+
+}
+
+main{
+    height: 92.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+#navBGimg{
+    height: 100%;
+    width: 15%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%), url(/Images/system-images/navBG.png);
+    background-size: cover;
+    background-position: center;
+}
+#navContent{
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 0.5%; 
+}
+
+#search{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#searchBox{
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 2px gray;
+    background-color: #EFEFEA;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2%;
+}
+#searchBox input{
+    border:none;
+    outline: none;
+    color: #595959;
+    background:none;
+    height: 100%;
+}
+#searchIcon{
+    height: 100%;
+    width: 10%;
+    border-radius: 0px 10px 10px 0px;
+    background-image: url(/Images/system-images/SearchBlackIcon.png);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#searchIcon:hover{
+    background-image: url(/Images/system-images/SearchWhiteIcon.png);
+    background-color: #595959;
+}
+#profileInfo{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#profilePhoto{
+    height: 90%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-image: url(/Images/profileImages/demoprofileImage.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center;
+    box-shadow: 0 0 2px;
+}
+#proInfo{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#userName{
+    font-family: jaldi;
+    font-size: 100%;
+}
+#userType{
+    font-family: jaldi;
+    font-size: 80%;
+}
+#sideBar{
+    width: 15%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+#SBtitle{
+    height: 10%;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#SBcontent{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3%;
+
+}
+.navOp{
+    color: white;
+    width: 75%;
+    height: 5%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+.navOp:hover{
+    background-color: white;
+    color: black;
+}
+
+.opIcon{
+  
+    height: 100%;
+    aspect-ratio: 1;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+.opName{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; ;
+
+}
+#dashboardIcon{
+    background-image: url(/Images/system-images/dashIconN.png);
+     background-size: 75%;
+}
+#dashboard:hover #dashboardIcon{
+    background-image: url(/Images/system-images/dashIconH.png);
+}
+#artgalleryIcon{
+    background-image: url(/Images/system-images/artgalleryIconN.png);
+}
+#artgallery:hover #artgalleryIcon{
+    background-image: url(/Images/system-images/artgalleryIconH.png);
+}
+#artcategoryIcon{
+    background-image: url(/Images/system-images/artcategoryIconN.png);
+}
+#artcategory:hover #artcategoryIcon{
+    background-image: url(/Images/system-images/artcategoryIconH.png);
+}
+#artistsIcon{
+    background-image: url(/Images/system-images/artistsIconN.png);
+}
+#artists:hover #artistsIcon{
+    background-image: url(/Images/system-images/artistsIconH.png);
+}
+#savedartsIcon{
+    background-image: url(/Images/system-images/savedartsIconN.png);
+}
+#savedarts:hover #savedartsIcon{
+    background-image: url(/Images/system-images/savedartsIconH.png);
+}
+#logoutIcon{
+    background-image: url(/Images/system-images/logoutIcon.png);
+}
+#logout:hover{
+    background-color: red;
+    color: white;
+}
