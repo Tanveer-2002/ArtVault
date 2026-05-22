@@ -29,12 +29,10 @@ span{
 
 
 #login-header{
-    height: 25%;
+    height: 50%;
     width: 100%;
     background-image: url("../Images/system-images/ArtVaulttext.png");
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 
