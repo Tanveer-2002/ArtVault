@@ -1,0 +1,267 @@
+#mainContent{
+    height: 100%;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#left{
+    width: 63%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#lr1{
+    height: 15%;
+    width: 100%;
+}
+#postTitle{
+    height: 40%;
+    width: 100%;
+    font-size:200%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#postArtist{
+    height: 60%;
+    width: 100%;
+    display:  flex;
+    flex-direction: row;
+    gap:1%
+}
+#artistPhoto{
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px gray;
+    border: 1px solid gray;
+    background-image: url("/Images/profileImages/demoProfileImage1.png");
+    background-size: 125%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#artistName{
+    height: 100%;
+    width: 40%;
+    font-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#artistName span{
+    font-size: 120%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+#lr2{
+    height: 55%;
+    width: 100%;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+}
+#lr2 img{
+    height: 100%;
+    width: auto;
+}
+#LSZbox{
+    position: absolute;
+    top:0;
+    right: 2px;
+    height: 98%;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+#LSZbox button{
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    background-position: center;
+    background-size: 75%;
+    background-repeat: no-repeat;
+}
+#likeB{
+    background-image: url("/Images/system-images/likeN.png");
+}
+#likeB:active{
+    background-image: url("/Images/system-images/likeC.png");
+}
+#saveB{
+    background-image: url("/Images/system-images/unsaved.png");
+}
+#saveB:active{
+    background-image: url("/Images/system-images/saved.png");
+}
+#zoomB{
+    background-image: url("/Images/system-images/zoom.png");
+}
+
+#lr3{
+    height: 20%;
+    width: 100%;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 10px;
+}
+#lr3 h3,p{
+    margin:2%;
+}
+#right{
+    width: 33%;
+    height: 95%;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#rr1{
+    width: 90%;
+    height: 30%;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#rr1l{
+    height: 90%;
+    width: 45%;
+    line-height: 10px;
+}
+
+#rr1r{
+    height: 90%;
+    width: 45%;
+    line-height: 20px;
+}
+
+#rr2{
+    width: 90%;
+    height: 60%;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#rr2 h2{
+    align-self: flex-start;
+    padding-left: 5%;
+}
+
+#commentBox{
+    width: 88%;
+    height: 63%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding-top: 2%;
+    padding-right: 2%;
+}
+#commentInput{
+    width: 87%;
+    height: 10%;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#cmnt{
+    width: 80%;
+    height: 90%;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+#sentBtn{
+    height: 100%;
+    aspect-ratio: 1;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    background-image: url("/Images/system-images/sentButton.png");
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+.comment{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.up {
+    height: 49%;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.commneterInfo{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.commenterImg{
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    border: 1px solid gray;
+    background-image: url("/Images/profileImages/demoprofileImage.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.commenterName{
+    height: 100%;
+    width: 70%;
+    
+    display: flex;
+    align-items: center;
+}
+.commentTime{
+    width: 21%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    font-size: 75%;
+
+}
+.down{
+    height: 49%;
+    width: 85%;
+    align-self: flex-end;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 10px;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
