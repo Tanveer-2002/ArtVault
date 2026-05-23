@@ -1,5 +1,8 @@
 .mainContent{
     margin: 15px;
+    overflow-y: auto;
+    overflow-x: none;
+    scrollbar-width: none;
 }
 
 .dragSection{

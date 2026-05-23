@@ -1,5 +1,8 @@
 .mainContent{
     margin: 13px;
+    overflow-y: auto;
+    overflow-x: none;
+    scrollbar-width: none;
 }
 
 .heading{
