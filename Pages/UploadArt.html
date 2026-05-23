@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="../CSS/topbar_and_sidebar.css">
+        <link rel="stylesheet" href="../CSS/UploadArt.css">
+    </head>
+    <body>
+        <nav>
+            <div id="navBGimg"></div>
+            <did id="navContent">
+                <div id="search">
+                    <dvi id="searchBox">
+                        <input type="text" placeholder="Search Artworks and Artists...">
+                        <div id="searchIcon"></div>
+                    </dvi>
+                </div>
+                <div id="profileInfo">
+                    <div id="profilePhoto"></div>
+                    <div id="proInfo">
+                        <span id="userName">M. Afnan</span>
+                        <span id="userType">viwer</span>
+                    </div>
+                </div>
+            </did>
+        </nav>
+        <main>
+            <div id="sideBar">
+                <div id="SBtitle">
+                    <span>ART Valut</span>
+                </div>
+                <div id="SBcontent">
+                    <div class="navOp"id ="dashboard">
+                        <div class="opIcon" id="dashboardIcon"></div>
+                        <div  class="opName" id="dashboardTitle">Dashboard</div>
+                    </div>
+                    <div class="navOp"id ="artgallery">
+                        <div class="opIcon" id="artgalleryIcon"></div>
+                        <div  class="opName" id="artgalleryTitle">Art Gallery</div>
+                    </div>
+                    <div class="navOp"id ="artcategory">
+                        <div class="opIcon" id="artcategoryIcon"></div>
+                        <div  class="opName" id="artcategoryTitle">Art Category</div>
+                    </div>
+                    <div class="navOp"id ="artists">
+                        <div class="opIcon" id="artistsIcon"></div>
+                        <div  class="opName" id="artistsTitle">Artists</div>
+                    </div>
+                    <div class="navOp"id ="savedarts">
+                        <div class="opIcon" id="savedartsIcon"></div>
+                        <div  class="opName" id="savedartsTitle">Saved Arts</div>
+                    </div>
+                    <div class="navOp"id ="logout">
+                        <div class="opIcon" id="logoutIcon"></div>
+                        <div  class="opName" id="logoutTitle">Log out</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainContent">
+                <div class="heading">
+                    <h1>Upload New Artwork</h1>
+                </div>
+                <div class="upladSection">
+                    <div class="dragSection">
+                        <div class="upIcon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <p>
+                            Drag & drop or Click to upload artwork Image (JPG, PNG).<br>
+                            Ensure your art work is high-resolution For best presentation
+                        </p>
+                    </div>
+                    <div class="upDetails">
+                        <div class="upDetailsLeft">
+                            <h4>Art Tilte</h4>
+                            <input type="text" placeholder="Title of Artwork">
+                            <h4>Discription</h4>
+                            <textarea name="" id="" placeholder="About artwork"></textarea>
+                            <h4>Medium</h4>
+                            <input type="text" placeholder="Enter medium">
+                            <div class="upDetailsLeftLower">
+                                <div class="hwc">
+                                    <h4>Height(cm)</h4>
+                                    <input type="text" placeholder="Enter height">
+                                </div>
+                                <div class="hwc">
+                                    <h4>Width(cm)</h4>
+                                    <input type="text" placeholder="Enter width">
+                                </div>
+                                <div class="hwc">
+                                    <h4>Creation Date</h4>
+                                    <input type="text" placeholder="Enter date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="updetailsRight">
+                            <div class="category">
+                                <h4>Category</h4>
+                                <select>
+                                    <option>Catagory</option>
+                                    <option>Painting</option>
+                                    <option>Digital Art</option>
+                                    <option>Photography</option>
+                                </select>
+                            </div>
+                            <div class="btnSide">
+                                <button class="upBtn">Upload</button><br>
+                                <button class="discardBtn">Discard</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
