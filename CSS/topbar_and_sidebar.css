@@ -203,6 +203,18 @@ main{
 #savedarts:hover #savedartsIcon{
     background-image: url(/Images/system-images/savedartsIconH.png);
 }
+#myGalleryIcon{
+    background-image: url(/Images/system-images/myGalleryIconN.png);
+}
+#myGallery:hover #myGalleryIcon{
+    background-image: url(/Images/system-images/myGalleryIconH.png);
+}
+#uploadIcon{
+    background-image: url(/Images/system-images/uploadIconN.png);
+}
+#upload:hover #uploadIcon{
+    background-image: url(/Images/system-images/uploadIconH.png);
+}
 #logoutIcon{
     background-image: url(/Images/system-images/logoutIcon.png);
 }

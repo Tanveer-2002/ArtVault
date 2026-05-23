@@ -17,7 +17,7 @@
                         <div id="searchIcon"></div>
                     </div>
                 </div>
-                <div id="profileInfo">
+                <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
                     <div id="profilePhoto"></div>
                     <div id="proInfo">
                         <span id="userName">M. Afnan</span>
@@ -33,15 +33,15 @@
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard">
+                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.html'">
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.html'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory">
+                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'">
                         <div class="opIcon" id="artcategoryIcon"></div>
                         <div  class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
@@ -49,14 +49,23 @@
                         <div class="opIcon" id="artistsIcon"></div>
                         <div  class="opName" id="artistsTitle">Artists</div>
                     </div>
-                    <div class="navOp"id ="savedarts">
+                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.html'">
                         <div class="opIcon" id="savedartsIcon"></div>
                         <div  class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
-                    <div class="navOp"id ="logout">
+                    <div class="navOp"id ="myGallery">
+                        <div class="opIcon" id="myGalleryIcon"></div>
+                        <div  class="opName" id="myGalleryTitle">My Gallery</div>
+                    </div>
+                    <div class="navOp"id ="upload" onclick="window.location.href='UploadArt.html'">
+                        <div class="opIcon" id="uploadIcon"></div>
+                        <div  class="opName" id="uploadTitle">Upload</div>
+                    </div>
+                    <div class="navOp"id ="logout" onclick="window.location.href='../index.html'">
                         <div class="opIcon" id="logoutIcon"></div>
                         <div  class="opName" id="logoutTitle">Log out</div>
                     </div>
+                </div>
                 </div>
            </div>
 
@@ -81,7 +90,7 @@
                         </div>
 
                     </div>
-                    <button class="account-settings-btn">
+                    <button class="account-settings-btn" onclick="window.location.href='EditProfile.html'">
                         Account Settings
                     </button>
                 </div>
@@ -136,6 +145,17 @@
                 </div>
            </div>
         </main>
+        <script>
+        const user = {role: "viewer"};
+            if(user.role == "viewer"){
+                document.getElementById("upload").style.display = "none";
+                document.getElementById("myGallery").style.display = "none";
+            }
+            else if(user.role == 'artist'){
+                document.getElementById("userType").innerText = "Artist";
+
+            }
+        </script>
     </body>
 </html>
 

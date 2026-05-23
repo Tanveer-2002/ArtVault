@@ -16,7 +16,7 @@
                         <div id="searchIcon"></div>
                     </dvi>
                 </div>
-                <div id="profileInfo">
+                <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
                     <div id="profilePhoto"></div>
                     <div id="proInfo">
                         <span id="userName">M. Afnan</span>
@@ -31,15 +31,15 @@
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard">
+                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.html'">
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery">
-                        <div class="opIcon" id="artgalleryIcon"></div>
+                    <div class="navOp"id ="artgallery" style="background-color:white;color: black; border: 1px solid black;" onclick="window.location.href='artgallery.html'">
+                        <div class="opIcon" id="artgalleryIcon" style="background-image: url('/Images/system-images/artgalleryIconH.png');"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory">
+                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'">
                         <div class="opIcon" id="artcategoryIcon"></div>
                         <div  class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
@@ -47,11 +47,19 @@
                         <div class="opIcon" id="artistsIcon"></div>
                         <div  class="opName" id="artistsTitle">Artists</div>
                     </div>
-                    <div class="navOp"id ="savedarts">
+                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.html'">
                         <div class="opIcon" id="savedartsIcon"></div>
                         <div  class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
-                    <div class="navOp"id ="logout">
+                    <div class="navOp"id ="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
+                        <div class="opIcon" id="myGalleryIcon"></div>
+                        <div  class="opName" id="myGalleryTitle">My Gallery</div>
+                    </div>
+                    <div class="navOp"id ="upload" onclick="window.location.href='UploadArt.html'">
+                        <div class="opIcon" id="uploadIcon"></div>
+                        <div  class="opName" id="uploadTitle">Upload</div>
+                    </div>
+                    <div class="navOp"id ="logout" onclick="window.location.href='../index.html'">
                         <div class="opIcon" id="logoutIcon"></div>
                         <div  class="opName" id="logoutTitle">Log out</div>
                     </div>
@@ -142,7 +150,7 @@
                             </div>
                         </div>
                         <div class="imgCard">
-                            <div class="up">
+                            <div class="up" onclick="window.location.href='post.html'">
                                 <img src="/Images/postImages/postDemo6.png">
                             </div>
                              <div class="down">
@@ -231,5 +239,16 @@
                 
             </div>
         </main>
+        <script>
+        const user = {role: "viewer"};
+            if(user.role == "viewer"){
+                document.getElementById("upload").style.display = "none";
+                document.getElementById("myGallery").style.display = "none";
+            }
+            else if(user.role == 'artist'){
+                document.getElementById("userType").innerText = "Artist";
+
+            }
+        </script>
     </body>
 </html>
