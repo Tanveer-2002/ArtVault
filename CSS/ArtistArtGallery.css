@@ -1,0 +1,60 @@
+.mainContent{
+    margin: 13px;
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading a{
+    text-decoration: none;
+    font-size: 16px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+}
+
+.cardSection{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card{
+    width: 370px;
+    height: 426px;
+    border-radius: 12.5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+    padding: 15px;
+}
+
+.cardImage{
+    width: 300px;
+    height: 300px;
+    border-radius: 12.5px;
+    margin: auto;
+    border: 0.5px solid black;
+}
+
+.cardImage img{
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    margin: auto;
+}
+
+.react{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon{
+    font-size: 20px;
+}
+
+.fa-circle-heart{
+    color: black;
+}
