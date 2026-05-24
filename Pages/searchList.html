@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Dashboard</title>
-        <link rel="stylesheet" href="../CSS/ArtCatagory.css">
+        <title>searchResult</title>
         <link rel="stylesheet" href="../CSS/topbar_and_sidebar.css">
+        <link rel="stylesheet" href="/CSS/searchList.css">
         
     </head>
     <body>
@@ -24,11 +24,10 @@
                     </div>
                 </div>
             </div>
-
         </nav>
         <main>
-           <div id="sideBar">
-             <div id="SBtitle">
+            <div id="sideBar">
+                <div id="SBtitle">
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
@@ -36,15 +35,15 @@
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.html'">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.html'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'" style="background-color:white;color: black; border: 1px solid black;">
-                        <div class="opIcon" id="artcategoryIcon" style="background-image: url('/Images/system-images/artcategoryIconH.png');"></div>
+                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'">
+                        <div class="opIcon" id="artcategoryIcon"></div>
                         <div  class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
-                    <div class="navOp"id ="artists" onclick="window.location.href='artists.html'">
+                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.html'">
                         <div class="opIcon" id="artistsIcon"></div>
                         <div  class="opName" id="artistsTitle">Artists</div>
                     </div>
@@ -64,60 +63,49 @@
                         <div class="opIcon" id="logoutIcon"></div>
                         <div  class="opName" id="logoutTitle">Log out</div>
                     </div>
+                    
                 </div>
-           </div>
-
-           <div class="content">
-
-             <h1>Art Categories</h1>
-            
-             <div class="category-card-container">
-                    <div class="grid-container">
-                        
-                        <div class="category-card" onclick="window.location.href='Realism.html'"
-                            <h3>Realism</h3>
+            </div>
+            <div id="mainContent">
+                <div id="pageName">
+                    Search Result for: Leo
+                    <select>
+                        <option id="op1">Filter Search</option>
+                        <optgroup id="op2">
+                            <option>artist</option>
+                            <option>leo</option>
+                        </optgroup>
+                        <optgroup id="op3">
+                            <option>Category</option>
+                            <option>Realism</option>
+                        </optgroup>
+                    </select>
+                </div>
+                                   
+                <div id="searchResult"> 
+                    <div id="r1">
+                        <div class="rimg" style="background-image: url('/Images/profileImages/leo.png');"></div>
+                        <div class="rTitle">
+                            Name : Leo De Vinci
+                            <button>View Profile</button>
                         </div>
-
-                        <div class="category-card">
-                            <h3>Impressionism</h3>
-                        </div>
-
-                        <div class="category-card" ;">
-                            <h3>Post-Impressionism</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Cubism</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Surrealism</h3>
-                        </div>
-
-                        <div class="category-card" >
-                            <h3>Abstract Art</h3>
-                        </div>
-
-                        <div class="category-card" >
-                            <h3>Expressionism</h3>
-                        </div>
-
-                        <div class="category-card" >
-                            <h3>Romanticism</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Baroque</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Minimalism</h3>
-                        </div>
-
 
                     </div>
+                    <div id="r2">
+                        <div class="rimg" style="background-image: url('/Images/postImages/postDemo7.png');"></div>
+                        <div class="rTitle">
+                            Title : Monalisa
+                            <button>View post</button>
+                        </div>
+
+                    </div>
+
                 </div>
-           </div>
+                
+                        
+                    
+                
+            </div>
         </main>
         <script>
         const user = {role: "viewer"};
@@ -130,6 +118,5 @@
 
             }
         </script>
-        
     </body>
 </html>
