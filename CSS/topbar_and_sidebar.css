@@ -28,7 +28,7 @@ main{
 #navBGimg{
     height: 100%;
     width: 15%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%), url(/Images/system-images/navBG.png);
+    background: linear-gradient(to right, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%), url(../Images/system-images/navBG.png);
     background-size: cover;
     background-position: center;
 }
@@ -73,13 +73,13 @@ main{
     height: 100%;
     width: 10%;
     border-radius: 0px 10px 10px 0px;
-    background-image: url(/Images/system-images/SearchBlackIcon.png);
+    background-image: url(../Images/system-images/SearchBlackIcon.png);
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
 }
 #searchIcon:hover{
-    background-image: url(/Images/system-images/SearchWhiteIcon.png);
+    background-image: url(../Images/system-images/SearchWhiteIcon.png);
     background-color: #595959;
 }
 #profileInfo{
@@ -94,7 +94,7 @@ main{
     height: 90%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background-image: url(/Images/profileImages/demoprofileImage.png);
+    background-image: url(../Images/profileImages/demoprofileImage.png);
     background-size: cover;
     background-position: center;
     background-position: center;
@@ -173,50 +173,50 @@ main{
 
 }
 #dashboardIcon{
-    background-image: url(/Images/system-images/dashIconN.png);
+    background-image: url(../Images/system-images/dashIconN.png);
      background-size: 75%;
 }
 #dashboard:hover #dashboardIcon{
-    background-image: url(/Images/system-images/dashIconH.png);
+    background-image: url(../Images/system-images/dashIconH.png);
 }
 #artgalleryIcon{
-    background-image: url(/Images/system-images/artgalleryIconN.png);
+    background-image: url(../Images/system-images/artgalleryIconN.png);
 }
 #artgallery:hover #artgalleryIcon{
-    background-image: url(/Images/system-images/artgalleryIconH.png);
+    background-image: url(../Images/system-images/artgalleryIconH.png);
 }
 #artcategoryIcon{
-    background-image: url(/Images/system-images/artcategoryIconN.png);
+    background-image: url(../Images/system-images/artcategoryIconN.png);
 }
 #artcategory:hover #artcategoryIcon{
-    background-image: url(/Images/system-images/artcategoryIconH.png);
+    background-image: url(../Images/system-images/artcategoryIconH.png);
 }
 #artistsIcon{
-    background-image: url(/Images/system-images/artistsIconN.png);
+    background-image: url(../Images/system-images/artistsIconN.png);
 }
 #artists:hover #artistsIcon{
-    background-image: url(/Images/system-images/artistsIconH.png);
+    background-image: url(../Images/system-images/artistsIconH.png);
 }
 #savedartsIcon{
-    background-image: url(/Images/system-images/savedartsIconN.png);
+    background-image: url(../Images/system-images/savedartsIconN.png);
 }
 #savedarts:hover #savedartsIcon{
-    background-image: url(/Images/system-images/savedartsIconH.png);
+    background-image: url(../Images/system-images/savedartsIconH.png);
 }
 #myGalleryIcon{
-    background-image: url(/Images/system-images/myGalleryIconN.png);
+    background-image: url(../Images/system-images/myGalleryIconN.png);
 }
 #myGallery:hover #myGalleryIcon{
-    background-image: url(/Images/system-images/myGalleryIconH.png);
+    background-image: url(../Images/system-images/myGalleryIconH.png);
 }
 #uploadIcon{
-    background-image: url(/Images/system-images/uploadIconN.png);
+    background-image: url(../Images/system-images/uploadIconN.png);
 }
 #upload:hover #uploadIcon{
-    background-image: url(/Images/system-images/uploadIconH.png);
+    background-image: url(../Images/system-images/uploadIconH.png);
 }
 #logoutIcon{
-    background-image: url(/Images/system-images/logoutIcon.png);
+    background-image: url(../Images/system-images/logoutIcon.png);
 }
 #logout:hover{
     background-color: red;

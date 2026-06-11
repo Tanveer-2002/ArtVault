@@ -193,7 +193,7 @@
             </div>
         </main>
         <script>
-        const user = {role: "viewer"};
+        const user = {role: "artist"};
             if(user.role == "viewer"){
                 document.getElementById("upload").style.display = "none";
                 document.getElementById("myGallery").style.display = "none";
