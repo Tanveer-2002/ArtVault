@@ -1,70 +1,260 @@
-.mainContent{
-    margin: 15px;
-    overflow-y: auto;
-    overflow-x: none;
-    scrollbar-width: none;
-}
-
-.dragSection{
-    width: 1180px;
-    height: 290px;
-    border-radius: 12.5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.upDetails{
-    width: 1180px;
-    height: 534px;
-    border-radius: 12.5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    margin: 20px 0px;
-}
-
-input, textarea, select{
-    width: 100%;
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background:#efefea;
-    font-size:10px;
-}
-
-textarea{
-    height: 151px;
-}
-
-.upDetailsLeftLower{
-    display: flex;
-    justify-content: space-between;
-}
-
-.updetailsRight{
+/* --- Main Workspace Layout Reset --- */
+.mainContent {
+    flex-grow: 1;
+    height: 100%;
+    padding: 20px 35px;
+    overflow: hidden; /* Blocks all page scrolling completely */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-button{
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;;
+.mainContent *, 
+.mainContent *::before, 
+.mainContent *::after {
+    box-sizing: border-box;
 }
 
-.upBtn{
-    background-color: black;
-    color: white;
+.heading {
+    height: auto;
     margin-bottom: 15px;
 }
 
-.discardBtn{
-    background-color: white;
-    color: black;
+.heading h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+    color: #222;
+}
+
+/* --- Dotted Upload Area Layout --- */
+.dragSection {
+    width: 100%;
+    height: 28%; /* Locks section height safely to prevent page stretching */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.dragContainer {
+    border: 2px dashed #b5b5b5;
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#uploadDefaultState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upIcon {
+    width: 15%;
+    aspect-ratio: 1;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 8px;
+    border: 2px solid #ccc;
+    padding: 2px 14px;
+    border-radius: 12px;
+    display: inline-block;
+    background-image: url('../Images/system-images/upIcon.png');
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    transition: background-color 0.2s;
+    
+}
+
+.upIcon:hover {
+    background-color: #f0f0eb;
+}
+
+
+.dragSection p {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.dragSection p span {
+    color: #666;
+}
+
+/* --- Dynamic Live Image Preview Styling --- */
+#uploadPreviewState {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#previewImage {
+    max-height: 90px; /* Constrains image height safely inside box */
+    max-width: 90%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#fileNameDisplay {
+    margin: 6px 0 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #444;
+}
+
+#removeFileBtn {
+    width: auto;
+    margin-top: 8px;
+    padding: 4px 14px;
+    font-size: 12px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#removeFileBtn:hover {
+    background: #e03b3b;
+}
+
+/* --- Interactive Input Grid Layout --- */
+.upDetails {
+    width: 100%;
+    height: 60%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.form-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.form-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+h4 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+}
+
+/* --- Global Forms, Inputs & Textarea Defaults --- */
+input, textarea, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background: #EFEFEA;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #999;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #666;
+}
+
+textarea {
+    height: 110px;
+    resize: none;
+}
+
+.dimensions-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.hwc {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+/* --- Action Bottom Buttons --- */
+.btnSide {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.upBtn {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+}
+
+.discardBtn {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
 }

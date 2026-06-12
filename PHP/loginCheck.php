@@ -15,6 +15,7 @@
         $row = $result->fetch_assoc();
 
         if(password_verify($password, $row['password'])){
+            $_SESSION['userEmail'] = $email;
             unset($_SESSION['epError']);
             $_SESSION['userEmail'] = $email;
 
