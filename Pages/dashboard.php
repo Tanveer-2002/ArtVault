@@ -43,7 +43,7 @@
                         <div class="opIcon" id="dashboardIcon" style="background-image: url('../Images/system-images/dashIconH.png');"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.html'">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
