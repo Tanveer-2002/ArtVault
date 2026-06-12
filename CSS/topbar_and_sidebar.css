@@ -91,14 +91,19 @@ main{
     align-items: center;
 }
 #profilePhoto{
-    height: 90%;
+    height: 80%;
     aspect-ratio: 1;
     border-radius: 50%;
     background-image: url(../Images/profileImages/demoprofileImage.png);
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     background-position: center;
     box-shadow: 0 0 2px;
+}
+#profilePhoto img{
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
 }
 #proInfo{
     width: 65%;
