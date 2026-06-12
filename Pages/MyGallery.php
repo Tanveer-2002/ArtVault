@@ -8,14 +8,14 @@
     $_SESSION['userName'] = $row['user_name'];
     $_SESSION['type'] = $row['is_artist'];
 
-    $query2 = "select * from post order by created_at desc";
+    $query2 = "select * from post where user_email ='{$_SESSION['userEmail']}'";
     $result2 = $connect->query($query2);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>ArtGallery</title>
+        <title>My Gallery</title>
         <link rel="stylesheet" href="../CSS/topbar_and_sidebar.css">
         <link rel="stylesheet" href="../CSS/artGallery.css">
     </head>
@@ -48,8 +48,8 @@
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp" id="artgallery" style="background-color:white;color: black; border: 1px solid black;" onclick="window.location.href='artGallery.php'">
-                        <div class="opIcon" id="artgalleryIcon" style="background-image: url('../Images/system-images/artGalleryIconH.png');"></div>
+                    <div class="navOp" id="artgallery" onclick="window.location.href='artGallery.php'">
+                        <div class="opIcon" id="artgalleryIcon" ></div>
                         <div class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
                     <div class="navOp" id="artcategory" onclick="window.location.href='ArtCatagory.html'">
@@ -67,8 +67,8 @@
                     <?php
                     if ($row['is_artist'] == 1) {
                         echo <<<HTML
-                    <div class="navOp" id="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
-                        <div class="opIcon" id="myGalleryIcon"></div>
+                    <div class="navOp" id="myGallery" style="background-color:white;color: black; border: 1px solid black;" onclick="window.location.href='MyGallery.html'">
+                        <div class="opIcon" id="myGalleryIcon" style="background-image: url('../Images/system-images/myGalleryIconH.png');"></div>
                         <div class="opName" id="myGalleryTitle">My Gallery</div>
                     </div>
 

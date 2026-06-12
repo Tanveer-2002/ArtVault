@@ -32,7 +32,7 @@
                         <div id="searchIcon" onclick="window.location.href='searchList.html'"></div>
                     </div>
                 </div>
-                <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
+                <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
                     <div id="profilePhoto"> <img src="<?php echo $row['profile_img_path']; ?>"></div>
                     <div id="proInfo">
                         <span id="userName"><?php echo $_SESSION['userName'] ; ?></span>
@@ -51,7 +51,7 @@
                         <div class="opIcon" id="dashboardIcon" style="background-image: url('../Images/system-images/dashIconH.png');"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.php'">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
@@ -131,7 +131,7 @@
                                     ?>');"
                                     onclick="window.location.href='../PHP/likePost.php?id=<?php echo $posts['post_id']; ?>'">
                                 </div>
-                            <div class="cmt" onclick="window.location.href='post.php?id=<?php echo $posts['post_id']; ?>'"></div>
+                            <div class="cmt"></div>
                             </div>
                             <div class="saveArt" style="background-image: url('<?php
                                         if (mysqli_num_rows($savedCheckResult) > 0) {
@@ -145,46 +145,6 @@
                         </div>
                     </div>
                     <?php } ?>
-                    <div class="imgCard">
-                        <div class="cUp"></div>
-                        <div class="cDown">
-                            <div class="likeCmt">
-                                <div class="like"></div>
-                                <div class="cmt"></div>
-                            </div>
-                            <div class="saveArt"></div>
-                        </div>
-                    </div>
-                    <div class="imgCard">
-                        <div class="cUp"></div>
-                        <div class="cDown">
-                            <div class="likeCmt">
-                                <div class="like"></div>
-                                <div class="cmt"></div>
-                            </div>
-                            <div class="saveArt"></div>
-                        </div>
-                    </div>
-                    <div class="imgCard">
-                        <div class="cUp"></div>
-                        <div class="cDown">
-                            <div class="likeCmt">
-                                <div class="like"></div>
-                                <div class="cmt"></div>
-                            </div>
-                            <div class="saveArt"></div>
-                        </div>
-                    </div>
-                    <div class="imgCard">
-                        <div class="cUp"></div>
-                        <div class="cDown">
-                            <div class="likeCmt">
-                                <div class="like"></div>
-                                <div class="cmt"></div>
-                            </div>
-                            <div class="saveArt"></div>
-                        </div>
-                    </div>
                     
                 </div>
                 <div class= "row" id="row3">
