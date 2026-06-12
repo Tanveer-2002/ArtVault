@@ -2,11 +2,13 @@
     session_start();
     include "../PHP/dbConnect.php";
 
-    $query1 = "SELECT * FROM user_ WHERE user_email = '$_SESSION[userEmail]'";
+    $email = $_GET['user_email'];
+
+    $query1 = "SELECT * FROM user_ WHERE user_email = '$email'";
     $result1 = $connect->query($query1);
     $user = $result1 -> fetch_assoc();
 
-    $query2 = "SELECT p.* FROM post p JOIN saved_artworks sa ON p.post_id = sa.post_id WHERE sa.user_email = '$_SESSION[userEmail]' LIMIT 3";
+    $query2 = "SELECT p.* FROM post p  WHERE p.user_email = '$email' LIMIT 3";
     $result2 = $connect->query($query2);
 
 ?>

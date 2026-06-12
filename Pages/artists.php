@@ -1,9 +1,27 @@
+<?php
+session_start();
+include "../PHP/dbConnect.php";
+
+// Logged in user
+$userEmail = $_SESSION['userEmail'];
+
+$query1 = "SELECT * FROM user_ WHERE user_email='$userEmail'";
+$result1 = $connect->query($query1);
+$user = $result1->fetch_assoc();
+
+// Fetch all artists
+$query2 = "SELECT * FROM user_ WHERE is_artist = 1";
+$result2 = $connect->query($query2);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>artists</title>
         <link rel="stylesheet" href="../CSS/topbar_and_sidebar.css">
-        <link rel="stylesheet" href="/CSS/artists.css">
+        <link rel="stylesheet" href="../CSS/artists.css">
         
     </head>
     <body>
@@ -71,23 +89,25 @@
                     Artists
                 </div>
                                    
-                <div id="searchResult"> 
+                <div id="searchResult">
+                   <?php while($artist = $result2->fetch_assoc()){ ?> 
                     <div id="r1">
-                        <div class="rimg" style="background-image: url('/Images/profileImages/leo.png');"></div>
+                        <div class="rimg" style="background-image: url('../Images/profileImages/leo.png');"></div>
                         <div class="rTitle">
-                            Name : Leo De Vinci
-                            <button>View Profile</button>
+                             Name: <?php echo $artist['user_name']; ?>
+                            <button onclick="window.location.href='ArtistProfile.php?user_email=<?php echo $artist['user_email']; ?>'"> View Profile</button>
                         </div>
 
                     </div>
-                    <div id="r2">
-                        <div class="rimg" style="background-image: url('/Images/profileImages/demoprofileImage.png');"></div>
+                    <?php } ?>
+                    <!-- <div id="r2">
+                        <div class="rimg" style="background-image: url('../Images/profileImages/demoprofileImage.png');"></div>
                         <div class="rTitle">
                             Nae: Mafnan
                             <button>View Profile</button>
                         </div>
 
-                    </div>
+                    </div> -->
 
                 </div>
                 
