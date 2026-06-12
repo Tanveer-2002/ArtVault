@@ -16,6 +16,8 @@
 
         if(password_verify($password, $row['password'])){
             unset($_SESSION['epError']);
+            $_SESSION['userEmail'] = $email;
+
             header("Location: ../Pages/dashboard.php");
             exit(); 
         } 

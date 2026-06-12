@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include "../PHP/dbConnect.php";
+
+    $query1 = "SELECT * FROM user_ WHERE user_email = '$_SESSION[userEmail]'";
+    $result1 = $connect->query($query1);
+    $user = $result1 -> fetch_assoc();
+
+    $query2 = "SELECT p.* FROM post p JOIN saved_artworks sa ON p.post_id = sa.post_id WHERE sa.user_email = '$_SESSION[userEmail]' LIMIT 3";
+    $result2 = $connect->query($query2);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +30,12 @@
                         <div id="searchIcon"onclick="window.location.href='searchList.html'"></div>
                     </div>
                 </div>
-                <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
+                <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
                     <div id="profilePhoto"></div>
                     <div id="proInfo">
-                        <span id="userName">M. Afnan</span>
-                        <span id="userType">viwer</span>
+                        
+                        <span id="userName"><?php echo $user['full_name']; ?> </span>
+                        <span id="userType"><?php echo $user['is_artist'] ?> </span>
                     </div>
                 </div>
             </div>
@@ -33,11 +47,11 @@
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.html'">
+                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.php'">
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.html'">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
@@ -79,14 +93,15 @@
                     <div class="profile-info">
 
                         <div class="image">
+                            <img src="<?php echo $user['profile_image_path']; ?>" alt="Profile Image">
                            </div>
 
                         <div class="profile-text">
                             <div class="name-row">
-                                <h2>Sarah K.</h2>
+                                <?php echo $user['full_name']; ?>
                                 <span class="badge">Visitor</span>
                             </div>
-                            <p class="join-date">Join Date: March 2026</p>
+                            <p class="join-date">Join Date: <?php echo date("F j, Y", strtotime($user['created_at'])); ?></p>
                         </div>
 
                     </div>
@@ -99,48 +114,57 @@
                     <div class="details-card">
                         <div class="info-row">
                             <span class="info-label">Username :</span>
-                            <span class="info-value">i_m_sarah_k</span>
+                            <span class="info-value"><?php echo $user['user_name']; ?></span>
                         </div>
                         <div class="info-row">
                             <span class="info-label">Email :</span>
-                            <span class="info-value">sarah_k123@gmail.com</span>
+                            <span class="info-value"><?php echo $user['user_email']; ?></span>
                         </div>
                         <div class="info-row">
                             <span class="info-label">Location :</span>
-                            <span class="info-value">Dhaka, Bangladesh</span>
+                            <span class="info-value">Dhaka,Bangladesh</span>
                         </div>
                     </div>
 
                     <div class="aboutme">
                         <h3>About me:</h3>
-                        <p>I am Sarah Khan</p>
+                        <p><?php echo $user['about_me']; ?></p>
                     </div>
                 </div>
 
                 <div class="collection-section">
                     <div class="collection-header">
                         <h2>My Collection</h2>
-                        <button class="view-all-btn">View All</button>
-                    </div>
+                        <button class="view-all-btn" onclick="window.location.href='SavedArtwork.html'">View All</button>
+                    </div>  
+
                     
                     <div class="collection-grid">
+                      <?php
+                        while($posts = $result2 -> fetch_assoc()) { ?>
+
                          <div class="art-card">
                             <div class="art-image">
+                                <img src="<?php echo $posts['post_image_path']; ?>" alt="Art Image">
                             </div>
-                            <p class="art-title">Art 1</p>
+                            <p class="art-title"><?php echo $posts['post_name']; ?></p>
+                        </div>
+
+                        <!-- <div class="art-card">
+                            <div class="art-image">
+                                <img src="" alt="Art Image">
+                            </div>
+                            <p class="art-title"></p>
                         </div>
 
                         <div class="art-card">
                             <div class="art-image">
+                                <img src="" alt="Art Image">
                             </div>
-                            <p class="art-title">Art 1</p>
-                        </div>
+                            <p class="art-title"></p>
+                        </div> -->
 
-                        <div class="art-card">
-                            <div class="art-image">
-                            </div>
-                            <p class="art-title">Art 1</p>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
            </div>

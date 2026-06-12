@@ -16,7 +16,7 @@
                         <div id="searchIcon" onclick="window.location.href='searchList.html'"></div>
                     </div>
                 </div>
-                <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
+                <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
                     <div id="profilePhoto"></div>
                     <div id="proInfo">
                         <span id="userName">M. Afnan</span>
@@ -35,7 +35,7 @@
                         <div class="opIcon" id="dashboardIcon" style="background-image: url('/Images/system-images/dashIconH.png');"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.html'">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
@@ -193,7 +193,7 @@
             </div>
         </main>
         <script>
-        const user = {role: "artist"};
+        const user = {role: "viewer"};
             if(user.role == "viewer"){
                 document.getElementById("upload").style.display = "none";
                 document.getElementById("myGallery").style.display = "none";
