@@ -55,27 +55,27 @@
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'">
+                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.php'">
                         <div class="opIcon" id="artcategoryIcon"></div>
                         <div  class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
-                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.html'">
+                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.php'">
                         <div class="opIcon" id="artistsIcon"></div>
                         <div  class="opName" id="artistsTitle">Artists</div>
                     </div>
-                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.html'">
+                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.php'">
                         <div class="opIcon" id="savedartsIcon"></div>
                         <div  class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
                     <?php
                     if ($row['is_artist'] == 1) {
                         echo <<<HTML
-                    <div class="navOp" id="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
+                    <div class="navOp" id="myGallery" onclick="window.location.href='MyGallery.php'">
                         <div class="opIcon" id="myGalleryIcon"></div>
                         <div class="opName" id="myGalleryTitle">My Gallery</div>
                     </div>
 
-                    <div class="navOp" id="upload" onclick="window.location.href='UploadArt.html'">
+                    <div class="navOp" id="upload" onclick="window.location.href='UploadArt.php'">
                         <div class="opIcon" id="uploadIcon"></div>
                         <div class="opName" id="uploadTitle">Upload</div>
                     </div>
@@ -118,7 +118,7 @@
                         
                     ?>
                     <div class="imgCard">
-                        <div class="cUp" style="background-image: url('<?php echo $posts['post_img_path'] ?>');"></div>
+                        <div class="cUp" style="background-image: url('<?php echo $posts['post_img_path'] ?>');" onclick="window.location.href='post.php?id=<?php echo $posts['post_id']; ?>'"></div>
                         <div class="cDown">
                             <div class="likeCmt"> 
                                 <div class="like"
@@ -131,7 +131,7 @@
                                     ?>');"
                                     onclick="window.location.href='../PHP/likePost.php?id=<?php echo $posts['post_id']; ?>'">
                                 </div>
-                            <div class="cmt"></div>
+                            <div class="cmt" onclick="window.location.href='post.php?id=<?php echo $posts['post_id']; ?>'"></div>
                             </div>
                             <div class="saveArt" style="background-image: url('<?php
                                         if (mysqli_num_rows($savedCheckResult) > 0) {

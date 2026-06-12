@@ -2,13 +2,12 @@
     session_start();
     include "../PHP/dbConnect.php";
 
-    $query1 = "SELECT * FROM user_ WHERE user_email = '$_SESSION[userEmail]'";
+    $query1 = "SELECT * FROM user_ WHERE user_email = '{$_SESSION['userEmail']}'";
     $result1 = $connect->query($query1);
-    $user = $result1 -> fetch_assoc();
+    $user = $result1->fetch_assoc();
 
-    $query2 = "SELECT p.* FROM post p JOIN saved_artworks sa ON p.post_id = sa.post_id WHERE sa.user_email = '$_SESSION[userEmail]' LIMIT 3";
+    $query2 = "SELECT p.* FROM post p JOIN saved_artworks sa ON p.post_id = sa.post_id WHERE sa.user_email = '{$_SESSION['userEmail']}' LIMIT 3";
     $result2 = $connect->query($query2);
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Profile</title>
     <link rel="stylesheet" href="../CSS/MyProfile.css">
     <link rel="stylesheet" href="../CSS/topbar_and_sidebar.css">
 </head>
@@ -27,75 +26,74 @@
                 <div id="search">
                     <div id="searchBox">
                         <input type="text" placeholder="Search Artworks and Artists...">
-                        <div id="searchIcon"onclick="window.location.href='searchList.html'"></div>
+                        <div id="searchIcon" onclick="window.location.href='searchList.html'"></div>
                     </div>
                 </div>
                 <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
-                    <div id="profilePhoto"></div>
+                    <div id="profilePhoto"> <img src="<?php echo $user['profile_img_path']; ?>"> </div>
                     <div id="proInfo">
-                        
                         <span id="userName"><?php echo $user['full_name']; ?> </span>
                         <span id="userType"><?php if($user['is_artist']==1) echo "Artist"; else echo "Viewer"; ?> </span>
                     </div>
                 </div>
             </div>
-
         </nav>
         <main>
-           <div id="sideBar">
-              <div id="SBtitle">
-                    <span>ART Valut</span>
+            <div id="sideBar">
+                <div id="SBtitle">
+                    <span>ART Vault</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.php'">
+                    <div class="navOp" id="dashboard" onclick="window.location.href='dashboard.php'">
                         <div class="opIcon" id="dashboardIcon"></div>
-                        <div  class="opName" id="dashboardTitle">Dashboard</div>
+                        <div class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.php'">
+                    <div class="navOp" id="artgallery" onclick="window.location.href='artGallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
-                        <div  class="opName" id="artgalleryTitle">Art Gallery</div>
+                        <div class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'">
+                    <div class="navOp" id="artcategory" onclick="window.location.href='ArtCatagory.php'">
                         <div class="opIcon" id="artcategoryIcon"></div>
-                        <div  class="opName" id="artcategoryTitle">Art Category</div>
+                        <div class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
-                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.html'">
+                    <div class="navOp" id="artists" onclick="window.location.href='artists.php'">
                         <div class="opIcon" id="artistsIcon"></div>
-                        <div  class="opName" id="artistsTitle">Artists</div>
+                        <div class="opName" id="artistsTitle">Artists</div>
                     </div>
-                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.html'">
+                    <div class="navOp" id="savedarts" onclick="window.location.href='SavedArtworks.php'">
                         <div class="opIcon" id="savedartsIcon"></div>
-                        <div  class="opName" id="savedartsTitle">Saved Arts</div>
+                        <div class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
-                    <div class="navOp"id ="myGallery">
+                    <?php
+                    if ($user['is_artist'] == 1) {
+                        echo <<<HTML
+                    <div class="navOp" id="myGallery" onclick="window.location.href='ArtistArtGallery.php'">
                         <div class="opIcon" id="myGalleryIcon"></div>
-                        <div  class="opName" id="myGalleryTitle">My Gallery</div>
+                        <div class="opName" id="myGalleryTitle">My Gallery</div>
                     </div>
-                    <div class="navOp"id ="upload" onclick="window.location.href='UploadArt.html'">
+
+                    <div class="navOp" id="upload" onclick="window.location.href='UploadArt.php'">
                         <div class="opIcon" id="uploadIcon"></div>
-                        <div  class="opName" id="uploadTitle">Upload</div>
+                        <div class="opName" id="uploadTitle">Upload</div>
                     </div>
-                    <div class="navOp"id ="logout" onclick="window.location.href='../index.html'">
+                    HTML;
+                    }
+                    ?>
+                    <div class="navOp" id="logout" onclick="window.location.href='../index.php'">
                         <div class="opIcon" id="logoutIcon"></div>
-                        <div  class="opName" id="logoutTitle">Log out</div>
+                        <div class="opName" id="logoutTitle">Log out</div>
                     </div>
                 </div>
-                </div>
-           </div>
+            </div>
 
-           
-
-           <div class="content">
-
-            <h1 class="page-title">My Profile</h1>
+            <div class="content">
+                <h1 class="page-title">My Profile</h1>
                 
                 <div class="profile-header-card">
                     <div class="profile-info">
-
                         <div class="image">
                             <img src="<?php echo $user['profile_img_path']; ?>" alt="Profile Image">
-                           </div>
-
+                        </div>
                         <div class="profile-text">
                             <div class="name-row">
                                 <?php echo $user['full_name']; ?>
@@ -103,7 +101,6 @@
                             </div>
                             <p class="join-date">Join Date: <?php echo date("F j, Y", strtotime($user['created_at'])); ?></p>
                         </div>
-
                     </div>
                     <button class="account-settings-btn" onclick="window.location.href='EditProfile.php'">
                         Account Settings
@@ -122,7 +119,7 @@
                         </div>
                         <div class="info-row">
                             <span class="info-label">Location :</span>
-                            <span class="info-value">Dhaka,Bangladesh</span>
+                            <span class="info-value">Dhaka, Bangladesh</span>
                         </div>
                     </div>
 
@@ -135,52 +132,22 @@
                 <div class="collection-section">
                     <div class="collection-header">
                         <h2>My Collection</h2>
-                        <button class="view-all-btn" onclick="window.location.href='SavedArtwork.html'">View All</button>
+                        <button class="view-all-btn" onclick="window.location.href='SavedArtworks.php'">View All</button>
                     </div>  
 
-                    
                     <div class="collection-grid">
                       <?php
-                        while($posts = $result2 -> fetch_assoc()) { ?>
-
-                         <div class="art-card">
-                            <div class="art-image">
-                                <img src="<?php echo $posts['post_img_path']; ?>" alt="Art Image">
+                        while($posts = $result2->fetch_assoc()) { ?>
+                            <div class="art-card">
+                                <div class="art-image">
+                                    <img src="<?php echo $posts['post_img_path']; ?>" alt="Art Image">
+                                </div>
+                                <p class="art-title"><?php echo $posts['post_name']; ?></p>
                             </div>
-                            <p class="art-title"><?php echo $posts['post_name']; ?></p>
-                        </div>
-
-                        <!-- <div class="art-card">
-                            <div class="art-image">
-                                <img src="" alt="Art Image">
-                            </div>
-                            <p class="art-title"></p>
-                        </div>
-
-                        <div class="art-card">
-                            <div class="art-image">
-                                <img src="" alt="Art Image">
-                            </div>
-                            <p class="art-title"></p>
-                        </div> -->
-
                         <?php } ?>
                     </div>
                 </div>
-           </div>
+            </div>
         </main>
-        <script>
-        const user = {role: "viewer"};
-            if(user.role == "viewer"){
-                document.getElementById("upload").style.display = "none";
-                document.getElementById("myGallery").style.display = "none";
-            }
-            else if(user.role == 'artist'){
-                document.getElementById("userType").innerText = "Artist";
-
-            }
-        </script>
     </body>
 </html>
-
-   

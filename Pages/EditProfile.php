@@ -96,35 +96,35 @@ if(isset($_POST['update'])){
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.html'">
+                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.php'">
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.html'">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'">
+                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.php'">
                         <div class="opIcon" id="artcategoryIcon"></div>
                         <div  class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
-                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.html'">
+                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.php'">
                         <div class="opIcon" id="artistsIcon"></div>
                         <div  class="opName" id="artistsTitle">Artists</div>
                     </div>
-                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.html'">
+                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.php'">
                         <div class="opIcon" id="savedartsIcon"></div>
                         <div  class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
-                    <div class="navOp"id ="myGallery">
+                    <div class="navOp"id ="myGallery" onclick="window.location.href='myGallery.php'">
                         <div class="opIcon" id="myGalleryIcon"></div>
                         <div  class="opName" id="myGalleryTitle">My Gallery</div>
                     </div>
-                    <div class="navOp"id ="upload" onclick="window.location.href='UploadArt.html'">
+                    <div class="navOp"id ="upload" onclick="window.location.href='UploadArt.php'">
                         <div class="opIcon" id="uploadIcon"></div>
                         <div  class="opName" id="uploadTitle">Upload</div>
                     </div>
-                    <div class="navOp"id ="logout" onclick="window.location.href='../index.html'">
+                    <div class="navOp"id ="logout" onclick="window.location.href='../index.php'">
                         <div class="opIcon" id="logoutIcon"></div>
                         <div  class="opName" id="logoutTitle">Log out</div>
                     </div>

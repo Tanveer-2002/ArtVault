@@ -2,13 +2,11 @@
     session_start();
     include "../PHP/dbConnect.php";
     
-    // Safety check: Redirect to index if session does not exist
     if (!isset($_SESSION['userEmail'])) {
         header("Location: ../index.php");
         exit();
     }
 
-    // Fetch details for the logged-in user
     $sql = "SELECT * FROM user_ WHERE user_email = '{$_SESSION['userEmail']}'";
     $result = $connect->query($sql);
     $row = $result->fetch_assoc();
@@ -16,7 +14,7 @@
     $_SESSION['userName'] = $row['user_name'];
     $_SESSION['type'] = $row['is_artist'];
 
-    // SIMPLE QUERY: Only gets posts that have a matching entry in saved_artworks for this specific user
+   
     $query2 = "SELECT post.* FROM post 
                INNER JOIN saved_artworks ON post.post_id = saved_artworks.post_id 
                WHERE saved_artworks.user_email = '{$_SESSION['userEmail']}'
@@ -69,11 +67,11 @@
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp" id="artcategory" onclick="window.location.href='ArtCatagory.html'">
+                    <div class="navOp" id="artcategory" onclick="window.location.href='ArtCatagory.php'">
                         <div class="opIcon" id="artcategoryIcon"></div>
                         <div class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
-                    <div class="navOp" id="artists" onclick="window.location.href='artists.html'">
+                    <div class="navOp" id="artists" onclick="window.location.href='artists.php'">
                         <div class="opIcon" id="artistsIcon"></div>
                         <div class="opName" id="artistsTitle">Artists</div>
                     </div>
@@ -84,7 +82,7 @@
                     <?php
                     if ($_SESSION['type'] == 1) {
                         echo <<<HTML
-                    <div class="navOp" id="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
+                    <div class="navOp" id="myGallery" onclick="window.location.href='MyGallery.php'">
                         <div class="opIcon" id="myGalleryIcon"></div>
                         <div class="opName" id="myGalleryTitle">My Gallery</div>
                     </div>
