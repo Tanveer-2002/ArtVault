@@ -2,9 +2,7 @@
     session_start();
     include "../PHP/dbConnect.php";
 
-    $query1 = "SELECT * FROM user_ WHERE user_email = '$_SESSION[userEmail]'";
-    $result1 = $connect->query($query1);
-    $user = $result1 -> fetch_assoc();
+
 
     $query2 = "select * from post order by created_at desc";
     $result2 = $connect->query($query2);
@@ -34,8 +32,8 @@
                 <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
                     <div id="profilePhoto"></div>
                     <div id="proInfo">
-                        <span id="userName"><?php echo $user['full_name']; ?></span>
-                        <span id="userType"><?php echo $user['is_artist']; ?></span>
+                        <span id="userName"><?php echo $_SESSION['userName'] ; ?></span>
+                        <span id="userType"><?php if($_SESSION['type']==1) echo "Artist"; else echo "Viwer"; ?></span>
                     </div>
                 </div>
             </did>
@@ -86,175 +84,53 @@
 
                     <div id="postScroller">
                       <?php
-                        while($posts = $result2 -> fetch_assoc()) { ?>
+                        while($posts = $result2 -> fetch_assoc()) { 
+                            $current_post_id = $posts['post_id'];
+                            $current_user_id = $_SESSION['userEmail']; // pulled from your active $row data
+
+                            $likeCheckSql = "SELECT * FROM likes WHERE post_id = '$current_post_id' AND user_email = '$current_user_id'";
+                            $likeCheckResult = $connect->query($likeCheckSql);
+
+                            $savedCheckSql = "SELECT * FROM saved_artworks WHERE post_id = '$current_post_id' AND user_email = '$current_user_id'";
+                            $savedCheckResult = $connect->query($savedCheckSql);
+                        ?>
                         <div class="imgCard">
                             <div class="up">
-                                <img src="<?php echo $posts['post_image_path']; ?>">
+                                <img src="<?php echo $posts['post_img_path']; ?>" onclick="window.location.href='post.php?id=<?php echo $posts['post_id']; ?>'">
                             </div>
                              <div class="down">
                                 <div class="artTitle"><?php echo $posts['post_name']; ?></div>
                                 <div class="likeCmntSave">
                                     <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt" ></button>
+                                        <button class="like"style="background-image: url('<?php
+                                            if (mysqli_num_rows($likeCheckResult) > 0) {
+                                                echo '../Images/system-images/likeC.png';
+                                            } else {
+                                                echo '../Images/system-images/likeN.png';
+                                            }
+                                            ?>');"
+                                            onclick="window.location.href='../PHP/likePost.php?id=<?php echo $posts['post_id']; ?>'">
+                                        </button>
+                                        <button class="cmnt" onclick="window.location.href='post.php?id=<?php echo $posts['post_id']; ?>'"></button>
 
                                     </div>
-                                    <button class="save"></button>
+                                    <button class="save"class="saveArt" style="background-image: url('<?php
+                                        if (mysqli_num_rows($savedCheckResult) > 0) {
+                                            echo '../Images/system-images/saved.png';
+                                        } else {
+                                            echo '../Images/system-images/unsaved.png';
+                                        }
+                                    ?>');"
+                                    onclick="window.location.href='../PHP/updateSaved.php?id=<?php echo $posts['post_id']; ?>'">
+                                    </button>
                                 </div>
                             </div>
                          </div>
                         <?php }
                        ?>
-                        <!-- <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo1.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                         </div>
-                        <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo3.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo4.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo5.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="imgCard">
-                            <div class="up" onclick="window.location.href='post.html'">
-                                <img src="/Images/postImages/postDemo6.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo7.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo3.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo1.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="imgCard">
-                            <div class="up">
-                                <img src="/Images/postImages/postDemo2.png">
-                            </div>
-                             <div class="down">
-                                <div class="artTitle">ART Title</div>
-                                <div class="likeCmntSave">
-                                    <div class="likeCmnt">
-                                        <button class="like"></button>
-                                        <button class="cmnt"></button>
-
-                                    </div>
-                                    <button class="save"></button>
-                                </div>
-                            </div>
-                        </div> -->
-                        
+    
                         
                     </div>
-                    <!-- <div  id=refreshBtn>Refresh
-                        <button></button>
-                    </div> -->
                 </div>
                 
             </div>

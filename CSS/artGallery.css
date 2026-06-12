@@ -102,20 +102,20 @@
     background-repeat: no-repeat;
 }
 .like{
-    background-image: url("/Images/system-images/likeN.png");
+    background-image: url("../Images/system-images/likeN.png");
 }
 .like:active{
-    background-image: url("/Images/system-images/likeC.png");
+    background-image: url("../Images/system-images/likeC.png");
 }
 .cmnt{
-    background-image: url("/Images/system-images/cmtIcon.png");
+    background-image: url("../Images/system-images/cmtIcon.png");
 }
 
 .save{
-    background-image: url("/Images/system-images/unsaved.png");
+    background-image: url("../Images/system-images/unsaved.png");
 }
 .save:active{
-    background-image: url("/Images/system-images/saved.png");
+    background-image: url("../Images/system-images/saved.png");
 }
 
 #refreshBtn{
@@ -137,14 +137,14 @@
     color:black;
 }
 #refreshBtn:hover button{
-    background-image: url("/Images/system-images/loadMoreB.png");
+    background-image: url("../Images/system-images/loadMoreB.png");
     background-color: white;
 }
 #refreshBtn button{
     height: 100%;
     aspect-ratio: 1;
     border: none;
-    background-image: url("/Images/system-images/loadMoreW.png");
+    background-image: url("../Images/system-images/loadMoreW.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

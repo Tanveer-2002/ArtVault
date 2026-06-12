@@ -37,7 +37,7 @@
     border-radius: 100%;
     box-shadow: 0px 0px 5px gray;
     border: 1px solid gray;
-    background-image: url("/Images/profileImages/demoProfileImage1.png");
+    background-image: url("../Images/profileImages/demoProfileImage1.png");
     background-size: 125%;
     background-position: center;
     background-repeat: no-repeat;
@@ -94,19 +94,19 @@
     background-repeat: no-repeat;
 }
 #likeB{
-    background-image: url("/Images/system-images/likeN.png");
+    background-image: url("../Images/system-images/likeN.png");
 }
 #likeB:active{
-    background-image: url("/Images/system-images/likeC.png");
+    background-image: url("../Images/system-images/likeC.png");
 }
 #saveB{
-    background-image: url("/Images/system-images/unsaved.png");
+    background-image: url("../Images/system-images/unsaved.png");
 }
 #saveB:active{
-    background-image: url("/Images/system-images/saved.png");
+    background-image: url("../Images/system-images/saved.png");
 }
 #zoomB{
-    background-image: url("/Images/system-images/zoom.png");
+    background-image: url("../Images/system-images/zoom.png");
 }
 
 #lr3{
@@ -198,7 +198,7 @@
     aspect-ratio: 1;
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    background-image: url("/Images/system-images/sentButton.png");
+    background-image: url("../Images/system-images/sentButton.png");
     background-position: center;
     background-size: 50%;
     background-repeat: no-repeat;
@@ -233,7 +233,7 @@
     aspect-ratio: 1;
     border-radius: 100%;
     border: 1px solid gray;
-    background-image: url("/Images/profileImages/demoprofileImage.png");
+    background-image: url("../Images/profileImages/demoprofileImage.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
