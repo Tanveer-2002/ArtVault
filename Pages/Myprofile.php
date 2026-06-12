@@ -93,7 +93,7 @@
                     <div class="profile-info">
 
                         <div class="image">
-                            <img src="<?php echo $user['profile_image_path']; ?>" alt="Profile Image">
+                            <img src="<?php echo $user['profile_img_path']; ?>" alt="Profile Image">
                            </div>
 
                         <div class="profile-text">
@@ -145,7 +145,7 @@
 
                          <div class="art-card">
                             <div class="art-image">
-                                <img src="<?php echo $posts['post_image_path']; ?>" alt="Art Image">
+                                <img src="<?php echo $posts['post_img_path']; ?>" alt="Art Image">
                             </div>
                             <p class="art-title"><?php echo $posts['post_name']; ?></p>
                         </div>

@@ -1,34 +1,61 @@
+<?php
+session_start();
+include "../PHP/dbConnect.php";
+
+if(!isset($_GET['category'])){
+    die("Category not selected");
+}
+
+$category = $_GET['category'];
+
+$query = "
+SELECT *
+FROM post
+WHERE post_catagory = '$category'
+ORDER BY created_at DESC
+";
+
+$result = $connect->query($query);
+
+if(!$result){
+    die("Query Failed: " . $connect->error);
+}
+?>
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Dashboard</title>
-        <link rel="stylesheet" href="../CSS/ArtCatagory.css">
         <link rel="stylesheet" href="../CSS/topbar_and_sidebar.css">
+        <link rel="stylesheet" href="../CSS/ArtistArtGallery.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="../CSS/realism.css">
         
     </head>
     <body>
         <nav>
             <div id="navBGimg"></div>
-            <div id="navContent">
+            <did id="navContent">
                 <div id="search">
-                    <div id="searchBox">
+                    <dvi id="searchBox">
                         <input type="text" placeholder="Search Artworks and Artists...">
                         <div id="searchIcon" onclick="window.location.href='searchList.html'"></div>
-                    </div>
+                    </dvi>
                 </div>
-                <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
+                <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
                     <div id="profilePhoto"></div>
                     <div id="proInfo">
                         <span id="userName">M. Afnan</span>
                         <span id="userType">viwer</span>
                     </div>
                 </div>
-            </div>
-
+            </did>
         </nav>
         <main>
-           <div id="sideBar">
-             <div id="SBtitle">
+            <div id="sideBar">
+                <div id="SBtitle">
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
@@ -40,11 +67,11 @@
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'" style="background-color:white;color: black; border: 1px solid black;">
-                        <div class="opIcon" id="artcategoryIcon" style="background-image: url('/Images/system-images/artcategoryIconH.png');"></div>
+                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.html'">
+                        <div class="opIcon" id="artcategoryIcon"></div>
                         <div  class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
-                    <div class="navOp"id ="artists" onclick="window.location.href='artists.html'">
+                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.html'">
                         <div class="opIcon" id="artistsIcon"></div>
                         <div  class="opName" id="artistsTitle">Artists</div>
                     </div>
@@ -52,7 +79,7 @@
                         <div class="opIcon" id="savedartsIcon"></div>
                         <div  class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
-                    <div class="navOp"id ="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
+                    <div class="navOp"id ="myGallery">
                         <div class="opIcon" id="myGalleryIcon"></div>
                         <div  class="opName" id="myGalleryTitle">My Gallery</div>
                     </div>
@@ -65,59 +92,37 @@
                         <div  class="opName" id="logoutTitle">Log out</div>
                     </div>
                 </div>
-           </div>
+            </div>
+           <div id="mainContent">
+                <div id="pageName" class="row"><?php echo $category; ?></div>
+                <div id="pageContent" class="row">
 
-           <div class="content">
+                    <div id="postScroller">
+                      <?php
+                        while($posts = $result -> fetch_assoc()) { ?>
+                        <div class="imgCard">
+                            <div class="up">
+                                <img src="<?php echo $posts['post_img_path']; ?>" onclick="window.location.href='post.php?id=<?php echo $posts['post_id']; ?>'">
+                            </div>
+                             <div class="down">
+                                <div class="artTitle"><?php echo $posts['post_name']; ?></div>
+                                <div class="likeCmntSave">
+                                    <div class="likeCmnt">
+                                        <button class="like"></button>
+                                        <button class="cmnt" onclick="window.location.href='post.php?id=<?php echo $posts['post_id']; ?>'"  ></button>
 
-             <h1>Art Categories</h1>
-            
-             <div class="category-card-container">
-                    <div class="grid-container">
+                                    </div>
+                                    <button class="save"></button>
+                                </div>
+                            </div>
+                         </div>
+                        <?php }
+                       ?>    
                         
-                        <div class="category-card" onclick="window.location.href='Realism.html'"
-                            <h3>Realism</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Impressionism</h3>
-                        </div>
-
-                        <div class="category-card" ;">
-                            <h3>Post-Impressionism</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Cubism</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Surrealism</h3>
-                        </div>
-
-                        <div class="category-card" >
-                            <h3>Abstract Art</h3>
-                        </div>
-
-                        <div class="category-card" >
-                            <h3>Expressionism</h3>
-                        </div>
-
-                        <div class="category-card" >
-                            <h3>Romanticism</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Baroque</h3>
-                        </div>
-
-                        <div class="category-card">
-                            <h3>Minimalism</h3>
-                        </div>
-
-
                     </div>
                 </div>
-           </div>
+                
+            </div>
         </main>
         <script>
         const user = {role: "viewer"};
@@ -130,6 +135,5 @@
 
             }
         </script>
-        
     </body>
 </html>

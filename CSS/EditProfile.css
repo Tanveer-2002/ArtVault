@@ -63,13 +63,12 @@ main{
 .profile-info {
     display: flex;
     align-items: center;
-    gap: 24px;
 }
 
 .image-edit{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 20px;
     justify-content: center;
     
 }
