@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    include "../PHP/dbConnect.php";
+
+    $query1 = "SELECT * FROM user_ WHERE user_email = '$_SESSION[userEmail]'";
+    $result1 = $connect->query($query1);
+    $user = $result1 -> fetch_assoc();
+
+    $query2 = "select * from post order by created_at desc";
+    $result2 = $connect->query($query2);
+   //$posts = $result2 -> fetch_assoc(); //fetch all posts in descending order of created_at
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,11 +31,11 @@
                         <div id="searchIcon" onclick="window.location.href='searchList.html'"></div>
                     </dvi>
                 </div>
-                <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
+                <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
                     <div id="profilePhoto"></div>
                     <div id="proInfo">
-                        <span id="userName">M. Afnan</span>
-                        <span id="userType">viwer</span>
+                        <span id="userName"><?php echo $user['full_name']; ?></span>
+                        <span id="userType"><?php echo $user['is_artist']; ?></span>
                     </div>
                 </div>
             </did>
@@ -31,11 +46,11 @@
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.html'">
+                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.php'">
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" style="background-color:white;color: black; border: 1px solid black;" onclick="window.location.href='artgallery.html'">
+                    <div class="navOp"id ="artgallery" style="background-color:white;color: black; border: 1px solid black;" onclick="window.location.href='artgallery.php'">
                         <div class="opIcon" id="artgalleryIcon" style="background-image: url('/Images/system-images/artgalleryIconH.png');"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
@@ -68,24 +83,29 @@
             <div id="mainContent">
                 <div id="pageName" class="row">Art Gallery</div>
                 <div id="pageContent" class="row">
+
                     <div id="postScroller">
+                      <?php
+                        while($posts = $result2 -> fetch_assoc()) { ?>
                         <div class="imgCard">
                             <div class="up">
-                                <img src="/Images/postImages/postDemo2.png">
+                                <img src="<?php echo $posts['post_image_path']; ?>">
                             </div>
                              <div class="down">
-                                <div class="artTitle">ART Title</div>
+                                <div class="artTitle"><?php echo $posts['post_name']; ?></div>
                                 <div class="likeCmntSave">
                                     <div class="likeCmnt">
                                         <button class="like"></button>
-                                        <button class="cmnt"></button>
+                                        <button class="cmnt" ></button>
 
                                     </div>
                                     <button class="save"></button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="imgCard">
+                         </div>
+                        <?php }
+                       ?>
+                        <!-- <div class="imgCard">
                             <div class="up">
                                 <img src="/Images/postImages/postDemo1.png">
                             </div>
@@ -100,7 +120,7 @@
                                     <button class="save"></button>
                                 </div>
                             </div>
-                        </div>
+                         </div>
                         <div class="imgCard">
                             <div class="up">
                                 <img src="/Images/postImages/postDemo3.png">
@@ -228,13 +248,13 @@
                                     <button class="save"></button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
                         
                     </div>
-                    <div  id=refreshBtn>Refresh
+                    <!-- <div  id=refreshBtn>Refresh
                         <button></button>
-                    </div>
+                    </div> -->
                 </div>
                 
             </div>

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    include "../PHP/dbConnect.php";
+
+    $sql = "SELECT * FROM user_ WHERE user_email = '{$_SESSION['userEmail']}'";
+    $result = $connect->query($sql);
+    $row = $result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,10 +25,10 @@
                     </div>
                 </div>
                 <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
-                    <div id="profilePhoto"></div>
+                    <div id="profilePhoto"> <img src="<?php echo $row['profile_img_path']; ?>"></div>
                     <div id="proInfo">
-                        <span id="userName">M. Afnan</span>
-                        <span id="userType">viwer</span>
+                        <span id="userName"><?php echo $row['user_name']; ?></span>
+                        <span id="userType"><?php if($row['is_artist']==1) echo "Artist"; else echo "Viwer"; ?></span>
                     </div>
                 </div>
             </div>
@@ -31,11 +39,11 @@
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard" style="background-color:white;color: black; border: 1px solid black;" onclick="window.location.href='dashboard.html'">
-                        <div class="opIcon" id="dashboardIcon" style="background-image: url('/Images/system-images/dashIconH.png');"></div>
+                    <div class="navOp"id ="dashboard" style="background-color:white;color: black; border: 1px solid black;" onclick="window.location.href='dashboard.php'">
+                        <div class="opIcon" id="dashboardIcon" style="background-image: url('../Images/system-images/dashIconH.png');"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.html'">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artgallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
@@ -51,15 +59,22 @@
                         <div class="opIcon" id="savedartsIcon"></div>
                         <div  class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
-                    <div class="navOp"id ="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
+                    <?php
+                    if ($row['is_artist'] == 1) {
+                        echo <<<HTML
+                    <div class="navOp" id="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
                         <div class="opIcon" id="myGalleryIcon"></div>
-                        <div  class="opName" id="myGalleryTitle">My Gallery</div>
+                        <div class="opName" id="myGalleryTitle">My Gallery</div>
                     </div>
-                    <div class="navOp"id ="upload" onclick="window.location.href='UploadArt.html'">
+
+                    <div class="navOp" id="upload" onclick="window.location.href='UploadArt.html'">
                         <div class="opIcon" id="uploadIcon"></div>
-                        <div  class="opName" id="uploadTitle">Upload</div>
+                        <div class="opName" id="uploadTitle">Upload</div>
                     </div>
-                    <div class="navOp"id ="logout" onclick="window.location.href='../index.html'">
+                    HTML;
+                    }
+                    ?>
+                    <div class="navOp"id ="logout" onclick="window.location.href='../index.php'">
                         <div class="opIcon" id="logoutIcon"></div>
                         <div  class="opName" id="logoutTitle">Log out</div>
                     </div>
@@ -68,7 +83,7 @@
             </div>
             <div id="mainContent">
                 <div class= "row" id="row1">
-                    <div id="greeting">Welcome, M. Afnan</div>
+                    <div id="greeting">Welcome, <?php echo $row['full_name'];?></div>
                     <div id="pageInfoAndButton">
                         <div id="pageInfo">
                             <div id="boxName">Art Feed</div>
@@ -192,16 +207,5 @@
                 </div>
             </div>
         </main>
-        <script>
-        const user = {role: "artist"};
-            if(user.role == "viewer"){
-                document.getElementById("upload").style.display = "none";
-                document.getElementById("myGallery").style.display = "none";
-            }
-            else if(user.role == 'artist'){
-                document.getElementById("userType").innerText = "Artist";
-
-            }
-        </script>
     </body>
 </html>

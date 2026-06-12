@@ -58,13 +58,14 @@
     
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $about_me="Not set";
-    $full_name="Not set";
+    $parts = explode("@", $email);
+    
+   
     $profile_img = "../Images/profileImages/defaultProfileImage.jpg";
-    $user_name="Not set";
 
     $sql = "INSERT INTO user_ (user_email, password, user_name, profile_img_path, is_artist, full_name, about_me)
             VALUES
-            ('$email','$hashed_password','$user_name', '$profile_img', '$register_as', '$full_name', '$about_me');"; 
+            ('$email','$hashed_password','$parts[0]', '$profile_img', '$register_as', '$parts[0]', '$about_me');"; 
     $connect->query($sql);
 
    
