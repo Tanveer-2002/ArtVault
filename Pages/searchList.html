@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>searchResult</title>
+    <link rel="stylesheet" href="../CSS/topbar_and_sidebar.css">
+    <link rel="stylesheet" href="../CSS/searchList.css">
+
+</head>
+
+<body>
+    <nav>
+        <div id="navBGimg"></div>
+        <div id="navContent">
+            <div id="search">
+                <div id="searchBox">
+                     <input type="text" name="val" placeholder="Search Artworks and Artists...">
+                    <div id="searchIcon" onclick="searchData()"></div>
+                </div>
+            </div>
+            <div id="profileInfo" onclick="window.location.href='MyProfile.html'">
+                <div id="profilePhoto"></div>
+                <div id="proInfo">
+                    <span id="userName">M. Afnan</span>
+                    <span id="userType">viwer</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div id="sideBar">
+            <div id="SBtitle">
+                <span>ART Valut</span>
+            </div>
+            <div id="SBcontent">
+                <div class="navOp" id="dashboard" onclick="window.location.href='dashboard.html'">
+                    <div class="opIcon" id="dashboardIcon"></div>
+                    <div class="opName" id="dashboardTitle">Dashboard</div>
+                </div>
+                <div class="navOp" id="artgallery" onclick="window.location.href='artgallery.html'">
+                    <div class="opIcon" id="artgalleryIcon"></div>
+                    <div class="opName" id="artgalleryTitle">Art Gallery</div>
+                </div>
+                <div class="navOp" id="artcategory" onclick="window.location.href='ArtCatagory.html'">
+                    <div class="opIcon" id="artcategoryIcon"></div>
+                    <div class="opName" id="artcategoryTitle">Art Category</div>
+                </div>
+                <div class="navOp" id="artists" onclick="window.location.href='artists.html'">
+                    <div class="opIcon" id="artistsIcon"></div>
+                    <div class="opName" id="artistsTitle">Artists</div>
+                </div>
+                <div class="navOp" id="savedarts" onclick="window.location.href='SavedArtworks.html'">
+                    <div class="opIcon" id="savedartsIcon"></div>
+                    <div class="opName" id="savedartsTitle">Saved Arts</div>
+                </div>
+                <div class="navOp" id="myGallery" onclick="window.location.href='ArtistArtGallery.html'">
+                    <div class="opIcon" id="myGalleryIcon"></div>
+                    <div class="opName" id="myGalleryTitle">My Gallery</div>
+                </div>
+                <div class="navOp" id="upload" onclick="window.location.href='UploadArt.html'">
+                    <div class="opIcon" id="uploadIcon"></div>
+                    <div class="opName" id="uploadTitle">Upload</div>
+                </div>
+                <div class="navOp" id="logout" onclick="window.location.href='../index.html'">
+                    <div class="opIcon" id="logoutIcon"></div>
+                    <div class="opName" id="logoutTitle">Log out</div>
+                </div>
+
+            </div>
+        </div>
+        <div id="mainContent">
+            <div id="pageName">
+                Search Result for: Leo
+                <div class="dropdown-container">
+
+                    <button class="main-btn" id="mainBtn">
+                        Browse Options
+                        <span>V</span>
+                    </button>
+
+                    <div class="dropdown-menu" id="dropdownMenu">
+
+                        <div class="menu-item">
+                            <button class="submenu-btn">
+                                Artist
+                                <span>+</span>
+                            </button>
+
+                            <div class="submenu">
+                                <a href="#">Taylor Swift</a>
+                                <a href="#">Ed Sheeran</a>
+                                <a href="#">Bruno Mars</a>
+                                <a href="#">The Weeknd</a>
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <button class="submenu-btn">
+                                Category
+                                <span>+</span>
+                            </button>
+
+                            <div class="submenu">
+                                <a href="#">Pop</a>
+                                <a href="#">Rock</a>
+                                <a href="#">Hip Hop</a>
+                                <a href="#">Jazz</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="searchResult">
+                <div id="r1">
+                    <div class="rimg" style="background-image: url('/Images/profileImages/leo.png');"></div>
+                    <div class="rTitle">
+                        Name : Leo De Vinci
+                        <button>View Profile</button>
+                    </div>
+
+                </div>
+                <div id="r2">
+                    <div class="rimg" style="background-image: url('/Images/postImages/postDemo7.png');"></div>
+                    <div class="rTitle">
+                        Title : Monalisa
+                        <button>View post</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </main>
+</body>
+
+</html>
+
+<script>
+function searchData() {
+    let value = document.querySelector('input[name=\"val\"]').value;
+    window.location.href = "searchlist.php?val=" + encodeURIComponent(value);
+}
+</script>

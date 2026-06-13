@@ -2,6 +2,12 @@
     session_start();
     include "../PHP/dbConnect.php";
 
+    $sql = "SELECT * FROM user_ WHERE user_email = '{$_SESSION['userEmail']}'";
+    $result = $connect->query($sql);
+    $row = $result->fetch_assoc();
+    $_SESSION['userName'] = $row['user_name'];
+    $_SESSION['type'] = $row['is_artist'];
+
     $id = $_GET['id'];
     $sql= "select * from post where post_id = '$id'";
     $result = $connect->query($sql);
@@ -21,20 +27,20 @@
         
     </head>
     <body>
-        <nav>
+       <nav>
             <div id="navBGimg"></div>
             <div id="navContent">
                 <div id="search">
                     <div id="searchBox">
                         <input type="text" placeholder="Search Artworks and Artists...">
-                        <div id="searchIcon"></div>
+                        <div id="searchIcon" onclick="window.location.href='searchList.html'"></div>
                     </div>
                 </div>
-                <div id="profileInfo">
-                    <div id="profilePhoto"></div>
+                <div id="profileInfo" onclick="window.location.href='MyProfile.php'">
+                    <div id="profilePhoto"> <img src="<?php echo $row['profile_img_path']; ?>"></div>
                     <div id="proInfo">
-                        <span id="userName">M. Afnan</span>
-                        <span id="userType">viwer</span>
+                        <span id="userName"><?php echo $_SESSION['userName'] ; ?></span>
+                        <span id="userType"><?php if($_SESSION['type']==1) echo "Artist"; else echo "Viwer"; ?></span>
                     </div>
                 </div>
             </div>
@@ -45,30 +51,46 @@
                     <span>ART Valut</span>
                 </div>
                 <div id="SBcontent">
-                    <div class="navOp"id ="dashboard">
+                    <div class="navOp"id ="dashboard" onclick="window.location.href='dashboard.php'">
                         <div class="opIcon" id="dashboardIcon"></div>
                         <div  class="opName" id="dashboardTitle">Dashboard</div>
                     </div>
-                    <div class="navOp"id ="artgallery">
+                    <div class="navOp"id ="artgallery" onclick="window.location.href='artGallery.php'">
                         <div class="opIcon" id="artgalleryIcon"></div>
                         <div  class="opName" id="artgalleryTitle">Art Gallery</div>
                     </div>
-                    <div class="navOp"id ="artcategory">
+                    <div class="navOp"id ="artcategory" onclick="window.location.href='ArtCatagory.php'">
                         <div class="opIcon" id="artcategoryIcon"></div>
                         <div  class="opName" id="artcategoryTitle">Art Category</div>
                     </div>
-                    <div class="navOp"id ="artists">
+                    <div class="navOp"id ="artists"  onclick="window.location.href='artists.php'">
                         <div class="opIcon" id="artistsIcon"></div>
                         <div  class="opName" id="artistsTitle">Artists</div>
                     </div>
-                    <div class="navOp"id ="savedarts">
+                    <div class="navOp"id ="savedarts" onclick="window.location.href='SavedArtworks.php'">
                         <div class="opIcon" id="savedartsIcon"></div>
                         <div  class="opName" id="savedartsTitle">Saved Arts</div>
                     </div>
-                    <div class="navOp"id ="logout">
+                    <?php
+                    if ($row['is_artist'] == 1) {
+                        echo <<<HTML
+                    <div class="navOp" id="myGallery" onclick="window.location.href='MyGallery.php'">
+                        <div class="opIcon" id="myGalleryIcon"></div>
+                        <div class="opName" id="myGalleryTitle">My Gallery</div>
+                    </div>
+
+                    <div class="navOp" id="upload" onclick="window.location.href='UploadArt.php'">
+                        <div class="opIcon" id="uploadIcon"></div>
+                        <div class="opName" id="uploadTitle">Upload</div>
+                    </div>
+                    HTML;
+                    }
+                    ?>
+                    <div class="navOp"id ="logout" onclick="window.location.href='../index.php'">
                         <div class="opIcon" id="logoutIcon"></div>
                         <div  class="opName" id="logoutTitle">Log out</div>
                     </div>
+                    
                 </div>
             </div>
             <div id="mainContent">
